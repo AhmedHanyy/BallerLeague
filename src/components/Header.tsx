@@ -1,5 +1,6 @@
 import React from 'react';
 import { Search, Bell, Settings, Trophy } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 export function Header() {
   return (
@@ -29,10 +30,10 @@ export function Header() {
       
       <div className="flex flex-1 justify-end gap-4 md:gap-8 items-center">
         <nav className="flex items-center gap-6 hidden lg:flex">
-          <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-sm font-medium transition-colors">Dashboard</a>
-          <a href="#" className="text-blue-600 text-sm font-bold border-b-2 border-blue-600 py-1">Matches</a>
-          <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-sm font-medium transition-colors">Standings</a>
-          <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-sm font-medium transition-colors">Teams</a>
+          <NavLink to="/" className={({isActive}) => isActive ? "text-blue-600 text-sm font-bold border-b-2 border-blue-600 py-1" : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-sm font-medium transition-colors"}>Dashboard</NavLink>
+          <NavLink to="/matches" className={({isActive}) => isActive ? "text-blue-600 text-sm font-bold border-b-2 border-blue-600 py-1" : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-sm font-medium transition-colors"}>Matches</NavLink>
+          <NavLink to="/standings" className={({isActive}) => isActive ? "text-blue-600 text-sm font-bold border-b-2 border-blue-600 py-1" : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-sm font-medium transition-colors"}>Standings</NavLink>
+          <NavLink to="/teams" className={({isActive}) => isActive ? "text-blue-600 text-sm font-bold border-b-2 border-blue-600 py-1" : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 text-sm font-medium transition-colors"}>Teams</NavLink>
         </nav>
         
         <div className="flex gap-2">

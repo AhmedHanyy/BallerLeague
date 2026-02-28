@@ -5,9 +5,9 @@ import {
   Trophy, 
   Users, 
   Activity, 
-  RefreshCw,
-  Trophy as LogoIcon // Using Trophy as a placeholder for the soccer ball icon
+  RefreshCw
 } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 export function Sidebar() {
   return (
@@ -19,11 +19,11 @@ export function Sidebar() {
       </div>
       
       <nav className="flex flex-col gap-1">
-        <NavItem icon={<LayoutDashboard size={20} />} label="Overview" />
-        <NavItem icon={<PenSquare size={20} />} label="Results Entry" active />
-        <NavItem icon={<Trophy size={20} />} label="Standings" />
-        <NavItem icon={<Users size={20} />} label="Teams" />
-        <NavItem icon={<Activity size={20} />} label="Player Stats" />
+        <NavItem to="/" icon={<LayoutDashboard size={20} />} label="Overview" />
+        <NavItem to="/results" icon={<PenSquare size={20} />} label="Results Entry" />
+        <NavItem to="/standings" icon={<Trophy size={20} />} label="Standings" />
+        <NavItem to="/teams" icon={<Users size={20} />} label="Teams" />
+        <NavItem to="/stats" icon={<Activity size={20} />} label="Player Stats" />
       </nav>
       
       <div className="mt-auto p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800/30">
@@ -39,20 +39,18 @@ export function Sidebar() {
   );
 }
 
-function NavItem({ icon, label, active = false }: { icon: React.ReactNode; label: string; active?: boolean }) {
-  if (active) {
-    return (
-      <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600 text-white shadow-sm shadow-blue-600/30">
-        {icon}
-        <span className="text-sm font-medium">{label}</span>
-      </a>
-    );
-  }
-  
+function NavItem({ icon, label, to }: { icon: React.ReactNode; label: string; to: string }) {
   return (
-    <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+    <NavLink 
+      to={to} 
+      className={({ isActive }) => 
+        isActive 
+          ? "flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600 text-white shadow-sm shadow-blue-600/30"
+          : "flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+      }
+    >
       {icon}
       <span className="text-sm font-medium">{label}</span>
-    </a>
+    </NavLink>
   );
 }
