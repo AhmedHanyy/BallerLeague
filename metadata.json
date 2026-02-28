@@ -1,0 +1,5 @@
+{
+  "name": "Sports Manager",
+  "description": "A sports management dashboard for tracking match results, standings, and team performance.",
+  "requestFramePermissions": []
+}

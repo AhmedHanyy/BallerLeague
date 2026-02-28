@@ -1,0 +1,58 @@
+import React from 'react';
+import { 
+  LayoutDashboard, 
+  PenSquare, 
+  Trophy, 
+  Users, 
+  Activity, 
+  RefreshCw,
+  Trophy as LogoIcon // Using Trophy as a placeholder for the soccer ball icon
+} from 'lucide-react';
+
+export function Sidebar() {
+  return (
+    <aside className="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 flex flex-col gap-6 hidden md:flex">
+      <div className="flex flex-col gap-1">
+        <h3 className="text-blue-600 text-xs font-bold uppercase tracking-wider px-3">League Admin</h3>
+        <p className="text-slate-900 dark:text-slate-100 text-sm font-semibold px-3">Premier League Alpha</p>
+        <p className="text-slate-500 text-xs px-3">2023/24 Season</p>
+      </div>
+      
+      <nav className="flex flex-col gap-1">
+        <NavItem icon={<LayoutDashboard size={20} />} label="Overview" />
+        <NavItem icon={<PenSquare size={20} />} label="Results Entry" active />
+        <NavItem icon={<Trophy size={20} />} label="Standings" />
+        <NavItem icon={<Users size={20} />} label="Teams" />
+        <NavItem icon={<Activity size={20} />} label="Player Stats" />
+      </nav>
+      
+      <div className="mt-auto p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800/30">
+        <div className="flex items-center gap-2 mb-2">
+          <RefreshCw size={16} className="text-blue-600 dark:text-blue-400" />
+          <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase">Live Data Sync</span>
+        </div>
+        <p className="text-[11px] text-slate-500 leading-relaxed">
+          System is ready for real-time recalculation of standings.
+        </p>
+      </div>
+    </aside>
+  );
+}
+
+function NavItem({ icon, label, active = false }: { icon: React.ReactNode; label: string; active?: boolean }) {
+  if (active) {
+    return (
+      <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-blue-600 text-white shadow-sm shadow-blue-600/30">
+        {icon}
+        <span className="text-sm font-medium">{label}</span>
+      </a>
+    );
+  }
+  
+  return (
+    <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+      {icon}
+      <span className="text-sm font-medium">{label}</span>
+    </a>
+  );
+}
