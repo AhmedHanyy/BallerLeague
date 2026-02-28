@@ -8,6 +8,10 @@ import { Sidebar } from './components/Sidebar';
 import { Header } from './components/Header';
 import { ResultsAnalytics } from './pages/ResultsAnalytics';
 import { Overview } from './pages/Overview';
+import { Teams } from './pages/Teams';
+import { PlayerStats } from './pages/PlayerStats';
+import { Matches } from './pages/Matches';
+import { Settings } from './pages/Settings';
 
 export default function App() {
   return (
@@ -19,7 +23,11 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Overview />} />
             <Route path="/results" element={<ResultsAnalytics />} />
-            <Route path="/standings" element={<ResultsAnalytics />} /> {/* Reusing for now */}
+            <Route path="/standings" element={<ResultsAnalytics />} />
+            <Route path="/teams" element={<Teams />} />
+            <Route path="/stats" element={<PlayerStats />} />
+            <Route path="/matches" element={<Matches />} />
+            <Route path="/settings" element={<Settings />} />
             <Route path="*" element={<Overview />} />
           </Routes>
         </div>

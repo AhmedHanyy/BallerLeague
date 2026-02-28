@@ -40,9 +40,9 @@ export function Header() {
           <button className="flex items-center justify-center rounded-lg size-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
             <Bell size={20} />
           </button>
-          <button className="flex items-center justify-center rounded-lg size-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+          <NavLink to="/settings" className="flex items-center justify-center rounded-lg size-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
             <Settings size={20} />
-          </button>
+          </NavLink>
         </div>
         
         <div className="bg-blue-600/20 rounded-full size-10 border-2 border-blue-600 overflow-hidden">
